@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}IngredientAI - Dashboard{% endblock %}
+
+{% block extra_head %}
+<style>
+.feature-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container i {
+    font-size: 2rem;
+    color: white;
+}
+
+.feature-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="gradient-text display-4">Analyze Your Food</h1>
+        <p class="text-light">Unlock insights about ingredients, health impact, and nutritional value.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="bi bi-camera"></i>
+                </div>
+                <h3>Analyze</h3>
+                <p>Upload an image or enter ingredients text to analyze food products instantly.</p>
+                <a href="{{ url_for('analyze') }}" class="btn btn-primary">Start Analysis</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="bi bi-bar-chart"></i>
+                </div>
+                <h3>Compare</h3>
+                <p>Compare different products side by side to make informed choices.</p>
+                <a href="{{ url_for('compare_page') }}" class="btn btn-primary">Compare Products</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-container">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+                <h3>History</h3>
+                <p>View your past analyses and track your food choices over time.</p>
+                <a href="{{ url_for('history') }}" class="btn btn-primary">View History</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
